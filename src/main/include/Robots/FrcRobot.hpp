@@ -5,12 +5,14 @@
 #ifndef ROBOTS_FrcRobot_H_
 #define ROBOTS_FrcRobot_H_
 
+#include <memory>
+#include <map>
+
 #include "frc4783Defs.h"
 #include "frc/drive/RobotDriveBase.h"
 #include "frc/SpeedController.h"
 
-#include <memory>
-#include <map>
+#include "Controllers/FrcController.hpp"
 
 namespace frc4783 {
 
@@ -45,7 +47,6 @@ protected:
      * only one drivetrain per robot:
      */
     std::shared_ptr<frc::RobotDriveBase> m_drivetrain;
-
     /**
      * list of motor controlers
      */

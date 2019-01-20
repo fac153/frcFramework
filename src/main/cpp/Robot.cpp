@@ -17,27 +17,45 @@
 
 #include "Robots/FrcRobot.hpp"
 #include "Robots/DeepSpace.hpp"
+#include "Robots/PowerUp.hpp"
+
+#include "Controllers/PS4Controller.hpp"
 
 TalonSRX srx = {0};
 
+std::shared_ptr<frc4783::FrcRobot> Robot::m_robot;
+std::shared_ptr<frc4783::FrcController> Robot::m_controller;
+
 void Robot::RobotInit() {
 
-  const frc4783::RobotType_e robotType = frc4783::DEEPSPACE;
+    const frc4783::RobotType_e robotType = frc4783::DEEPSPACE;
 
-  m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
-  m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
-  frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+    m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
+    m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
+    frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-  srx.Set(ControlMode::PercentOutput, 0);
+    srx.Set(ControlMode::PercentOutput, 0);
 
-  switch(robotType) {
+    switch(robotType) {
     case frc4783::DEEPSPACE:
-      m_robot.reset(new frc4783::DeepSpace());
-      break;
+        m_robot.reset(new frc4783::DeepSpace());
+        break;
+    case frc4783::POWERUP:
+        m_robot.reset(new frc4783::PowerUp());
+        break;
     default:
-      break;
-  }
+        break;
+    }
 
+    m_controller.reset(new frc4783::PS4Controller(0));
+}
+
+std::shared_ptr<frc4783::FrcRobot> Robot::getRobot() {
+    return m_robot;
+}
+
+std::shared_ptr<frc4783::FrcController> Robot::getController() {
+    return m_controller;
 }
 
 /**

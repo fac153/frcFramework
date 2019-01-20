@@ -13,7 +13,7 @@ Drivetrain::Drivetrain() : Subsystem("DriveTrain") {
 }
 
 void Drivetrain::InitDefaultCommand() {
-    SetDefaultCommand(new frc4783::DriveWithJoystick());
+    SetDefaultCommand(new frc4783::DriveWithJoystick(shared_from_this()));
 }
 
 void Drivetrain::Reset(){

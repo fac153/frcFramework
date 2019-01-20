@@ -10,7 +10,9 @@
 
 namespace frc4783 {
 
-class Drivetrain : public frc::Subsystem {
+class Drivetrain : 
+    public frc::Subsystem,
+    public std::enable_shared_from_this<Drivetrain> {
 
 public:
 
