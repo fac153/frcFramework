@@ -22,6 +22,7 @@ const int XboxController::rightYAxisId = 5;
 
 XboxController::XboxController(int id) : FrcController(id) {
 
+    printf("[xbox] Creating JoystickButtons\n");
     // allocate frc::JoystickButton objects
     m_buttons[frc4783::Button_A] = new frc::JoystickButton(m_driveStick.get(), buttonAId);
     m_buttons[frc4783::Button_B] = new frc::JoystickButton(m_driveStick.get(), buttonBId);
@@ -34,6 +35,8 @@ XboxController::XboxController(int id) : FrcController(id) {
     m_buttons[frc4783::Right_Bumper] = new frc::JoystickButton(m_driveStick.get(), buttonRightBumperId);
     m_buttons[frc4783::Left_Stick] = new frc::JoystickButton(m_driveStick.get(), buttonLeftStickId);
     m_buttons[frc4783::Right_Stick] = new frc::JoystickButton(m_driveStick.get(), buttonRightStickid);
+
+    printf("[xbox] JoystickButtons created\n");
 }
 
 XboxController::~XboxController() {

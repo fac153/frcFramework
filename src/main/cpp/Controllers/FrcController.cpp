@@ -3,6 +3,7 @@
 namespace frc4783 {
 
 FrcController::FrcController(int id) {
+    printf("creating Joystick\n");
     m_driveStick.reset(new frc::Joystick(id));
 }
 

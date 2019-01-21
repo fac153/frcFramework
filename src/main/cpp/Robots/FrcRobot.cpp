@@ -15,7 +15,7 @@ const int FrcRobot::PwmIdDriveFrontRightDefault = 2;
 const int FrcRobot::PwmIdDriveRearRightDefault = 3;
 
 FrcRobot::FrcRobot() {
-    createDriveTrain();
+    printf("FrcRobot ctor\n");
 }
 
 FrcRobot::~FrcRobot() {
@@ -23,6 +23,7 @@ FrcRobot::~FrcRobot() {
 }
 
 void FrcRobot::createDriveTrain() {
+    printf("FrcRobot::createDriveTrain\n");
     std::shared_ptr<frc::SpeedController> frontLeft = std::make_shared<frc::VictorSP>(PwmIdDriveFrontLeftDefault);
     m_motors[frc4783::DriveFrontLeft] = frontLeft;
 
@@ -53,6 +54,7 @@ void FrcRobot::createDriveTrain() {
     differentialDrive->SetExpiration(0.1);
     differentialDrive->SetMaxOutput(1.0);
 #endif
+    printf("FrcRobot: drivetrain created\n");
 }
 
 std::shared_ptr<frc::RobotDriveBase> FrcRobot::getDrivetrain() {

@@ -5,15 +5,17 @@
 namespace frc4783 {
 
 DriveWithJoystick::DriveWithJoystick(std::shared_ptr<frc4783::Drivetrain>drivetrain) {
+    printf("DriveWithJoystick ctor\n");
     Requires(std::dynamic_pointer_cast<frc::Subsystem>(drivetrain).get());
     m_drivetrain = drivetrain;
 }
 
 void DriveWithJoystick::Initialize() {
-
+    printf("DriveWithJoystick::Initialize\n");
 }
 
 void DriveWithJoystick::Execute() {
+    printf("DriveWithJoystick::Execute\n");
     float direction = -1;
     float speed = 0.0;
     float turn = 0.0;

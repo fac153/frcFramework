@@ -20,6 +20,7 @@
 #include "Robots/PowerUp.hpp"
 
 #include "Controllers/PS4Controller.hpp"
+#include "Controllers/XboxController.hpp"
 
 TalonSRX srx = {0};
 
@@ -28,7 +29,9 @@ std::shared_ptr<frc4783::FrcController> Robot::m_controller;
 
 void Robot::RobotInit() {
 
-    const frc4783::RobotType_e robotType = frc4783::DEEPSPACE;
+  printf("RobotInit\n");
+
+    const frc4783::RobotType_e robotType = frc4783::POWERUP;
 
     m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
     m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
@@ -36,18 +39,22 @@ void Robot::RobotInit() {
 
     srx.Set(ControlMode::PercentOutput, 0);
 
+    printf("robotType = %d\n", robotType);
     switch(robotType) {
     case frc4783::DEEPSPACE:
+    printf("creating DeepSpace Robot\n");
         m_robot.reset(new frc4783::DeepSpace());
         break;
     case frc4783::POWERUP:
+    printf("creating PowerUp Robot\n");
         m_robot.reset(new frc4783::PowerUp());
         break;
     default:
         break;
     }
 
-    m_controller.reset(new frc4783::PS4Controller(0));
+    printf("creating controller\n");
+    m_controller.reset(new frc4783::XboxController(0));
 }
 
 std::shared_ptr<frc4783::FrcRobot> Robot::getRobot() {
@@ -66,7 +73,9 @@ std::shared_ptr<frc4783::FrcController> Robot::getController() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic() {
+  printf("RobotPeriodic\n");
+}
 
 /**
  * This autonomous (along with the chooser code above) shows how to select

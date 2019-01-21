@@ -7,7 +7,8 @@
 namespace frc4783 {
 
 DeepSpace::DeepSpace() {
-
+    printf("DeepSpace ctor\n");
+    createDriveTrain();
 }
 
 DeepSpace::~DeepSpace() {

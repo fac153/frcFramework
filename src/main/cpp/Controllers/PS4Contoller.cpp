@@ -24,6 +24,7 @@ const int PS4Controller::rightYAxisId = 5;
 
 PS4Controller::PS4Controller(int id) : FrcController(id) {
 
+    printf("[ps4] Creating JoystickButtons\n");
     // allocate frc::JoystickButton objects
     m_buttons[frc4783::Button_Square] = new frc::JoystickButton(m_driveStick.get(), buttonSquareId);
     m_buttons[frc4783::Button_Circle] = new frc::JoystickButton(m_driveStick.get(), buttonCircleId);
@@ -40,6 +41,8 @@ PS4Controller::PS4Controller(int id) : FrcController(id) {
     m_buttons[frc4783::Left_Stick] = new frc::JoystickButton(m_driveStick.get(), buttonLeftStickId);
     m_buttons[frc4783::Right_Stick] = new frc::JoystickButton(m_driveStick.get(), buttonRightStickid);
     m_buttons[frc4783::TouchPad] = new frc::JoystickButton(m_driveStick.get(), buttonPadId);
+
+    printf("[ps4] JoystickButtons created\n");
 }
 
 PS4Controller::~PS4Controller() {

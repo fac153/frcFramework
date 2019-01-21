@@ -10,18 +10,22 @@
 namespace frc4783 {
 
 Drivetrain::Drivetrain() : Subsystem("DriveTrain") {
+    printf("Drivetrain ctor\n");
 }
 
 void Drivetrain::InitDefaultCommand() {
+    printf("Drivetrain::InitDefaultCommand\n");
     SetDefaultCommand(new frc4783::DriveWithJoystick(shared_from_this()));
 }
 
 void Drivetrain::Reset(){
+    printf("Drivetrain::Reset\n");
     Stop();
     ResetEncoder();
 }
 
 void Drivetrain::ArcadeDrive(double speed, double turn){
+    printf("Drivetrain::ArcadeDrive\n");
     if (m_drivetrain != nullptr) {
         std::dynamic_pointer_cast<frc::DifferentialDrive>(m_drivetrain)->ArcadeDrive(speed, turn);
     }

@@ -13,6 +13,8 @@ namespace frc4783 {
 
 PowerUp::PowerUp() {
     // TODO Auto-generated constructor stub
+    printf("PowerUp ctor\n");
+    createDriveTrain();
 
 }
 
@@ -21,6 +23,7 @@ PowerUp::~PowerUp() {
 }
 
 void PowerUp::createDriveTrain() {
+    printf("PowerUp: creating drive train\n");
     std::shared_ptr<frc::SpeedController> frontLeft = std::make_shared<ctre::phoenix::motorcontrol::can::WPI_VictorSPX>(3);
     m_motors[frc4783::DriveFrontLeft] = frontLeft;
 
@@ -53,7 +56,7 @@ void PowerUp::createDriveTrain() {
     rightDrive = std::make_shared <frc::SpeedControllerGroup>(*rearRight, *frontRight);
 
     m_drivetrain.reset(new frc::DifferentialDrive(*leftDrive, *rightDrive));
-
+    printf("PowerUp: drivetrain created\n");
 }
 
 } /* namespace frc */
