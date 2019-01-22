@@ -17,7 +17,6 @@ const int FrcRobot::PwmIdDriveFrontRightDefault = 2;
 const int FrcRobot::PwmIdDriveRearRightDefault = 3;
 
 FrcRobot::FrcRobot() {
-    createDriveTrain();
 }
 
 FrcRobot::~FrcRobot() {

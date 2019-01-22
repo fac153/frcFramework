@@ -7,7 +7,7 @@
 namespace frc4783 {
 
 DeepSpace::DeepSpace() {
-
+    createDriveTrain();
 }
 
 DeepSpace::~DeepSpace() {

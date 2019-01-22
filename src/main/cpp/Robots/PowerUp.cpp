@@ -12,8 +12,7 @@
 namespace frc4783 {
 
 PowerUp::PowerUp() {
-    // TODO Auto-generated constructor stub
-
+    createDriveTrain();
 }
 
 PowerUp::~PowerUp() {
