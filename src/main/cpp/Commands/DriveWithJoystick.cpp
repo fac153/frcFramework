@@ -24,7 +24,9 @@ void DriveWithJoystick::Execute() {
         turn = (-0.75 * ctrl->getRawAxis(frc4783::Right_X_Axis));
     }
 
-    m_drivetrain->ArcadeDrive(speed, turn);
+    if (m_drivetrain != nullptr) {
+        m_drivetrain->ArcadeDrive(speed, turn);
+    }
 
 #if 0
     if (Robot::drivetrain->IsSpine == true){
@@ -52,7 +54,7 @@ bool DriveWithJoystick::IsFinished() {
 
 void DriveWithJoystick::End() {
      //Robot::drivetrain->Stop();
-     if (m_drivetrain) {
+     if (m_drivetrain != nullptr) {
          m_drivetrain->Stop();
      }
 }

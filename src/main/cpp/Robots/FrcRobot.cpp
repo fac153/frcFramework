@@ -3,6 +3,8 @@
  */
 
 #include "Robots/FrcRobot.hpp"
+#include "Subsystems/Drivetrain.hpp"
+
 #include "frc/VictorSP.h"
 #include "frc/SpeedControllerGroup.h"
 #include "frc/drive/DifferentialDrive.h"
@@ -47,6 +49,9 @@ void FrcRobot::createDriveTrain() {
     rightDrive = std::make_shared <frc::SpeedControllerGroup>(*rearRight, *frontRight);
 
     m_drivetrain.reset(new frc::DifferentialDrive(*leftDrive, *rightDrive));
+
+    std::shared_ptr<frc::Subsystem> driveTrain = std::make_shared<frc4783::Drivetrain>();
+    m_subsystems[frc4783::Common_drivetrain] = driveTrain;
 
 #if 0
     differentialDrive->SetSafetyEnabled(false);

@@ -5,7 +5,7 @@
 #ifndef SUBSYSTEM_DRIVETRAIN_H
 #define SUBSYSTEM_DRIVETRAIN_H
 
-#include "frc/Commands/Subsystem.h"
+#include "frc/commands/Subsystem.h"
 #include "frc/WPILib.h"
 
 namespace frc4783 {

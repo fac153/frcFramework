@@ -49,8 +49,15 @@ protected:
     std::shared_ptr<frc::RobotDriveBase> m_drivetrain;
     /**
      * list of motor controlers
+     * contains frc::SpeedController, index by frc4783::MotorControllerType_e
      */
     std::map<frc4783::MotorControllerType_e, std::shared_ptr<frc::SpeedController>> m_motors;
+
+    /**
+     * list of subsystems
+     * contains frc::Subsystem, index by frc4783::SubsystemType_e
+     */
+    std::map<frc4783::SubsystemType_e, std::shared_ptr<frc::Subsystem>> m_subsystems;
 };
 
 } /* namespace frc4783 */

@@ -55,6 +55,20 @@ typedef enum controllerAxesType {
     Right_Y_Axis
 } ControllerAxesType_e;
 
+typedef enum subsystemType {
+    Common_drivetrain,  ///< all robots have a drivetrain subsystem
+    PowerUp_begin,  ///< start of PowerUp specific subsystems
+    PowerUp_Spine,  ///< spine subsystem for elevating spine
+    PowerUp_Arm,  ///< arm subsystem for rotating arm
+    PowerUp_Claw,  ///< claw subsystem for handling cubes
+    PowerUp_end,   ///< end of PowerUp specific subsystems
+    DeepSpace_begin,  ///< start of DeepSpace specific subsystems
+    DeepSpace_Elevator,  ///< elevator subsystem to reach upper cargo and hatch levels
+    DeepSpace_Hatch, ///< hatch subsystem for handling hatches
+    DeepSpace_Cargo,  ///< cargo subsytem for handling cargo
+    DeepSpace_end,  ///< end of DeepSpace specific subsystems
+} SubsystemType_e;
+
 } // namespace frc4783
 
 
